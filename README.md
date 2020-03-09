@@ -20,7 +20,8 @@ To use in a layout :
  <!-- rectangle width and height is the white rectangle dimensions 
     which specifies the rectangle boundary the barcode must come under --> 
 
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
