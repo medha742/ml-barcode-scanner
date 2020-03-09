@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "960257458709",
+    "firebase_url": "https://custombarcodescanner.firebaseio.com",
+    "project_id": "custombarcodescanner",
+    "storage_bucket": "custombarcodescanner.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:960257458709:android:299efbcd6ef79396c5441c",
+        "android_client_info": {
+          "package_name": "com.mogambo.custombarcodescanner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "960257458709-cpdc8aen1l6a65mojo5buq5cigk2j8ad.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCV1nB--KXMH2VYDR1QWH_LlOnMYokmfyM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "960257458709-cpdc8aen1l6a65mojo5buq5cigk2j8ad.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
