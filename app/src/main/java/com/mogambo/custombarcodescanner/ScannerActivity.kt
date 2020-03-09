@@ -2,9 +2,13 @@ package com.mogambo.custombarcodescanner
 
 import android.animation.AnimatorInflater
 import android.animation.AnimatorSet
+import android.annotation.TargetApi
+import android.content.Context
 import android.hardware.Camera
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.AttributeSet
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -18,9 +22,8 @@ import com.mogambo.custombarcodescanner.camera.CameraSourcePreview
 import com.mogambo.custombarcodescanner.camera.GraphicOverlay
 import com.mogambo.custombarcodescanner.viewmodel.WorkflowModel
 import java.io.IOException
-import java.util.ArrayList
 
-class MainActivity : AppCompatActivity(),View.OnClickListener {
+class ScannerActivity : AppCompatActivity(),View.OnClickListener {
     private var cameraSource: CameraSource? = null
     private var preview: CameraSourcePreview? = null
     private var graphicOverlay: GraphicOverlay? = null
@@ -36,7 +39,7 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
         setContentView(R.layout.activity_main)
         preview = findViewById(R.id.camera_preview)
         graphicOverlay = findViewById<GraphicOverlay>(R.id.camera_preview_graphic_overlay).apply {
-            setOnClickListener(this@MainActivity)
+            setOnClickListener(this@ScannerActivity)
             cameraSource = CameraSource(this)
         }
 
@@ -48,7 +51,7 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
 
         findViewById<View>(R.id.close_button).setOnClickListener(this)
         flashButton = findViewById<View>(R.id.flash_button).apply {
-            setOnClickListener(this@MainActivity)
+            setOnClickListener(this@ScannerActivity)
         }
 
         setUpWorkflowModel()
@@ -175,4 +178,7 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
         cameraSource?.release()
         cameraSource = null
     }
+
+
+
 }

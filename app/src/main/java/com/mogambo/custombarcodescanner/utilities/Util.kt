@@ -21,8 +21,8 @@ import kotlin.math.abs
 
 object Util {
     private val MIN_BARCODE_WIDTH = 50
-    private val BARCODE_RECT_WIDTH = 75
-    private val BARCODE_RECT_HEIGHT = 45
+    var BARCODE_RECT_WIDTH = 75
+    var BARCODE_RECT_HEIGHT = 45
     const val ASPECT_RATIO_TOLERANCE = 0.01f
     private val TAG = javaClass.simpleName
 

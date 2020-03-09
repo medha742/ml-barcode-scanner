@@ -1,6 +1,8 @@
 package com.mogambo.custombarcodescanner.camera
 
+import android.annotation.TargetApi
 import android.content.Context
+import android.os.Build
 import android.util.AttributeSet
 import android.util.Log
 import android.view.SurfaceHolder
@@ -16,11 +18,35 @@ class CameraSourcePreview(context: Context, attrs: AttributeSet) : FrameLayout(c
         holder.addCallback(SurfaceCallback())
         addView(this)
     }
+
     private var graphicOverlay: GraphicOverlay? = null
     private var startRequested = false
     private var surfaceAvailable = false
     private var cameraSource: CameraSource? = null
     private var cameraPreviewSize: Size? = null
+
+    init {
+        attrs.let {
+            val typedArray = context.obtainStyledAttributes(it,
+                R.styleable.CameraSourcePreview, 0, 0)
+            val rectangle_width = typedArray.getInt(R.styleable
+                .CameraSourcePreview_rectangle_width,80)
+
+            Util.BARCODE_RECT_WIDTH = rectangle_width
+            val rectangle_height = typedArray
+                .getInt(R.styleable
+                    .CameraSourcePreview_rectangle_height,
+                    35)
+
+            Util.BARCODE_RECT_HEIGHT = rectangle_height
+
+
+
+            typedArray.recycle()
+        }
+
+    }
+
 
     override fun onFinishInflate() {
         super.onFinishInflate()
@@ -101,9 +127,11 @@ class CameraSourcePreview(context: Context, attrs: AttributeSet) : FrameLayout(c
         try {
             startIfReady()
         } catch (e: IOException) {
-            Log.e(TAG, "Could not start camera source.", e)
+            Log.e(javaClass.simpleName, "Could not start camera source.", e)
         }
     }
+
+
 
     private inner class SurfaceCallback : SurfaceHolder.Callback {
         override fun surfaceCreated(surface: SurfaceHolder) {
